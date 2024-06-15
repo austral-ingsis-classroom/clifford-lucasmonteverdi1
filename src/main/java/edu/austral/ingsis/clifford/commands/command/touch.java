@@ -7,11 +7,10 @@ import edu.austral.ingsis.clifford.filesystem.File;
 public class touch implements Command {
 
   @Override
-  public Directory execute(String command, Directory directory) {
-    String[] cmd = command.split(" ");
-    Archive file = new File(cmd[1], directory.getPath());
+  public Directory execute(String[] splitCommand, Directory directory) {
+    Archive file = new File(splitCommand[1], directory.getPath());
     directory.addFile(file);
-    System.out.println("'" + cmd[1] + "' file created. ");
+    System.out.println("'" + splitCommand[1] + "' file created. ");
     return directory;
   }
 }

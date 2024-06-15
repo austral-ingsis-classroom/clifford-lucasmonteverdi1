@@ -5,7 +5,7 @@ import edu.austral.ingsis.clifford.filesystem.Directory;
 public class pwd implements Command {
 
   @Override
-  public Directory execute(String command, Directory directory) {
+  public Directory execute(String[] splitCommand, Directory directory) {
     System.out.println(directory.getPath());
     return directory;
   }

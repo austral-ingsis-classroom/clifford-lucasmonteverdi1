@@ -27,7 +27,7 @@ public class CLI implements Interpreter {
     if (cmd == null) {
       System.out.println("Unknown command: " + command);
     } else {
-      this.directory = cmd.execute(command, directory);
+      this.directory = cmd.execute(splitCommand, directory);
     }
   }
 }

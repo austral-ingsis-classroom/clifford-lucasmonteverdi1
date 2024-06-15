@@ -5,8 +5,7 @@ import edu.austral.ingsis.clifford.filesystem.Directory;
 public class cd implements Command {
 
   @Override
-  public Directory execute(String command, Directory directory) {
-    String[] splitCommand = command.split(" ");
-
+  public Directory execute(String[] splitCommand, Directory directory) {
+    return directory;
   }
 }

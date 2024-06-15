@@ -6,19 +6,18 @@ import edu.austral.ingsis.clifford.filesystem.Directory;
 public class ls implements Command {
 
   @Override
-  public Directory execute(String command, Directory directory) {
-    String[] splitCommand = command.split(" ");
+  public Directory execute(String[] splitCommand, Directory directory) {
     String output = loadFiles(directory);
     if (splitCommand.length == 1) {
       System.out.println(output);
     } else {
-      printAccordingToParameters(output, command);
+      printAccordingToParameters(output, splitCommand);
     }
     return directory;
   }
 
-  private void printAccordingToParameters(String output, String command) {
-    String[] splitParam = command.split("=");
+  private void printAccordingToParameters(String output, String[] command) {
+    String[] splitParam = command[1].split("=");
     if (splitParam[1].equals("asc")) {
       System.out.println(output);
     } else if (splitParam[1].equals("desc")) {
