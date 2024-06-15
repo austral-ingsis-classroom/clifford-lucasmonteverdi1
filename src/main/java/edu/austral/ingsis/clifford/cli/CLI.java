@@ -22,8 +22,8 @@ public class CLI implements Interpreter {
   @Override
   public void execute(String command) {
     String[] splitCommand = command.split(" ");
-    Command cmd = parsers
-        .get(splitCommand[0])
-        .parse(command);
+    CommandParser parser = parsers.get(splitCommand[0]);
+    Command cmd = parser.parse(command);
+    this.directory = cmd.execute(command);
   }
 }

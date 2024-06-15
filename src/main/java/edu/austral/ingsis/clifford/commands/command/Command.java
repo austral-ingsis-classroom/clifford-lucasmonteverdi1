@@ -1,5 +1,7 @@
 package edu.austral.ingsis.clifford.commands.command;
 
+import edu.austral.ingsis.clifford.Directory;
+
 public interface Command {
-  void execute(String command);
+  Directory execute(String command);
 }
