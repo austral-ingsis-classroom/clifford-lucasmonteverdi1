@@ -8,12 +8,13 @@ public class mkdir implements Command {
   public Directory execute(String command, Directory directory) {
     String[] splitCommand = command.split(" ");
     if (isInvalidInput(splitCommand)) {
-      throw new IllegalArgumentException("Invalid command");
+      System.out.println("Invalid argument for directory name.");
     } else {
       Directory newDir = new Directory(splitCommand[1], directory.getPath() + "/" + splitCommand[1]);
       directory.addDirectory(newDir);
-      return directory;
+      System.out.println("'" + splitCommand[1] + "' directory created.");
     }
+    return directory;
   }
 
   /* No spaces for the name or slashes at the beginning. */

@@ -7,5 +7,6 @@ public class touch implements Command {
   @Override
   public Directory execute(String command, Directory directory) {
 
+    return directory;
   }
 }

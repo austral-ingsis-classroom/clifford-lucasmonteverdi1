@@ -21,16 +21,20 @@ public class ls implements Command {
     String[] splitParam = command.split("=");
     if (splitParam[1].equals("asc")) {
       System.out.println(output);
-    } else {
+    } else if (splitParam[1].equals("desc")) {
       System.out.println(new StringBuilder(output).reverse());
+    } else {
+      System.out.println("Invalid argument for parameter: '" + splitParam[0] + "'");
     }
   }
 
   private String loadFiles(Directory directory) {
-    String res = "";
-    for (Archive file : directory.getFiles()) {
-      res += file.toString() + " ";
+    StringBuilder res = new StringBuilder();
+    if (!directory.getFiles().isEmpty()) {
+      for (Archive file : directory.getFiles()) {
+        res.append(file.toString()).append(" ");
+      }
     }
-    return res;
+    return res.toString();
   }
 }
