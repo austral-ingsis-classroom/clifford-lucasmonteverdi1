@@ -2,20 +2,33 @@ package edu.austral.ingsis.clifford;
 
 import java.util.List;
 
-public class Directory {
+public class Directory implements Archive {
   private List<Archive> files;
   private String name;
+  private String path;
 
-  public Directory(String name) {
+  public Directory(String name, String path) {
     this.name = name;
+    this.path = path;
+  }
+
+  @Override
+  public String getName() {
+    return name;
+  }
+
+  @Override
+  public String getPath() {
+    return path;
+  }
+
+  @Override
+  public String toString() {
+    return name;
   }
 
   public List<Archive> getFiles() {
     return files;
-  }
-
-  public String getName() {
-    return name;
   }
 
   /* 'touch' */
@@ -33,10 +46,10 @@ public class Directory {
 
   }
 
-  private File findFile(String name, List<Archive> files) {
+  private Archive findFile(String name, List<Archive> files) {
     for (Archive file : files) {
-      if (file instanceof File && ((File) file).getFileName().equals(name)) {
-        return (File) file;
+      if (file instanceof File && file.getName().equals(name)) {
+        return file;
       }
     }
     return null;

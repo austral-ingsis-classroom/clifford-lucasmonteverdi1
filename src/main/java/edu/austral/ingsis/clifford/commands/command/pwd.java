@@ -5,7 +5,7 @@ import edu.austral.ingsis.clifford.Directory;
 public class pwd implements Command {
 
   @Override
-  public Directory execute(String command) {
+  public Directory execute(String command, Directory directory) {
 
   }
 }

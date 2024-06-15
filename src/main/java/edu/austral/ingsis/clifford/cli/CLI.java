@@ -24,6 +24,6 @@ public class CLI implements Interpreter {
     String[] splitCommand = command.split(" ");
     CommandParser parser = parsers.get(splitCommand[0]);
     Command cmd = parser.parse(command);
-    this.directory = cmd.execute(command);
+    this.directory = cmd.execute(command, directory);
   }
 }
