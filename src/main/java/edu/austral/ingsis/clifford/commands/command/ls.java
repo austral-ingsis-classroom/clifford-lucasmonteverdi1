@@ -1,7 +1,7 @@
 package edu.austral.ingsis.clifford.commands.command;
 
-import edu.austral.ingsis.clifford.Archive;
-import edu.austral.ingsis.clifford.Directory;
+import edu.austral.ingsis.clifford.filesystem.Archive;
+import edu.austral.ingsis.clifford.filesystem.Directory;
 
 public class ls implements Command {
 

@@ -1,4 +1,4 @@
-package edu.austral.ingsis.clifford;
+package edu.austral.ingsis.clifford.filesystem;
 
 public class File implements Archive {
   private final String name;

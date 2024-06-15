@@ -1,6 +1,6 @@
 package edu.austral.ingsis.clifford.cli;
 
-import edu.austral.ingsis.clifford.Directory;
+import edu.austral.ingsis.clifford.filesystem.Directory;
 import edu.austral.ingsis.clifford.commands.command.Command;
 import edu.austral.ingsis.clifford.commands.parser.*;
 import java.util.HashMap;

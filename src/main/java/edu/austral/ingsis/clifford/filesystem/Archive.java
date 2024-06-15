@@ -1,4 +1,4 @@
-package edu.austral.ingsis.clifford;
+package edu.austral.ingsis.clifford.filesystem;
 
 public interface Archive {
   String getName();
