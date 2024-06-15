@@ -6,6 +6,18 @@ public class mkdir implements Command {
 
   @Override
   public Directory execute(String command, Directory directory) {
+    String[] splitCommand = command.split(" ");
+    if (isInvalidInput(splitCommand)) {
+      throw new IllegalArgumentException("Invalid command");
+    } else {
+      Directory newDir = new Directory(splitCommand[1], directory.getPath() + "/" + splitCommand[1]);
+      directory.addDirectory(newDir);
+      return directory;
+    }
+  }
 
+  /* No spaces for the name or slashes at the beginning. */
+  private boolean isInvalidInput(String[] splitCommand) {
+    return splitCommand.length > 2 || splitCommand[1].charAt(0) == '/';
   }
 }
