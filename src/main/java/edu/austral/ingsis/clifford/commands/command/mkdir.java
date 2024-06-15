@@ -12,5 +12,4 @@ public class mkdir implements Command {
     System.out.println("'" + splitCommand[1] + "' directory created.");
     return directory;
   }
-
 }
