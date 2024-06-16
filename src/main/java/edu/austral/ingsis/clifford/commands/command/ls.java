@@ -11,7 +11,7 @@ public class ls implements Command {
 
   @Override
   public String execute(String[] splitCommand, Interpreter interpreter) {
-    Directory currentDir = interpreter.getDirectory();
+    Directory currentDir = interpreter.getCurrentDirectory();
     if (splitCommand.length == 1) {
       return loadFiles(currentDir);
     } else {

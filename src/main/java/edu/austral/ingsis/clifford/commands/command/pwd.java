@@ -6,6 +6,6 @@ public class pwd implements Command {
 
   @Override
   public String execute(String[] splitCommand, Interpreter interpreter) {
-    return interpreter.getDirectory().getPath();
+    return interpreter.getCurrentDirectory().getPath();
   }
 }

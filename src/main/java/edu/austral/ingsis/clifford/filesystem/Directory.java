@@ -1,5 +1,6 @@
 package edu.austral.ingsis.clifford.filesystem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Directory implements Archive {
@@ -12,6 +13,7 @@ public class Directory implements Archive {
     this.name = name;
     this.path = path;
     this.parent = parent;
+    this.files = new ArrayList<>();
   }
 
   @Override
@@ -48,9 +50,7 @@ public class Directory implements Archive {
   }
 
   /* 'rm' */
-  public void removeFile(String name) {
-
-  }
+  public void removeFile(String name) {}
 
   private Archive findFile(String name, List<Archive> files) {
     for (Archive file : files) {

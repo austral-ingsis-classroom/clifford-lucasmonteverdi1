@@ -1,13 +1,14 @@
 package edu.austral.ingsis.clifford.cli;
 
-import edu.austral.ingsis.clifford.filesystem.Directory;
 import edu.austral.ingsis.clifford.commands.command.Command;
 import edu.austral.ingsis.clifford.commands.parser.*;
+import edu.austral.ingsis.clifford.filesystem.Directory;
 import java.util.HashMap;
 import java.util.Map;
 
 public class CLI implements Interpreter {
   private Directory directory;
+  private final Directory root = new Directory("root", "/", null);
   private final Map<String, CommandParser> parsers = new HashMap<>();
 
   public CLI() {
@@ -32,13 +33,17 @@ public class CLI implements Interpreter {
   }
 
   @Override
-  public Directory getDirectory() {
+  public Directory getCurrentDirectory() {
     return directory;
+  }
+
+  @Override
+  public Directory getRoot() {
+    return root;
   }
 
   @Override
   public void setDirectory(Directory directory) {
     this.directory = directory;
   }
-
 }

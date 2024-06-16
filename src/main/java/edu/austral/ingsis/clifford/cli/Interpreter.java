@@ -4,6 +4,10 @@ import edu.austral.ingsis.clifford.filesystem.Directory;
 
 public interface Interpreter {
   void execute(String command);
-  Directory getDirectory();
+
+  Directory getCurrentDirectory();
+
+  Directory getRoot();
+
   void setDirectory(Directory directory);
 }
