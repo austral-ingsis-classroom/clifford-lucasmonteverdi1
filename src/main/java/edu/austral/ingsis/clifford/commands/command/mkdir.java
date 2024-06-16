@@ -7,9 +7,10 @@ public class mkdir implements Command {
 
   @Override
   public String execute(String[] splitCommand, Interpreter interpreter) {
-    Directory newDir = new Directory(splitCommand[1],
-        interpreter.getDirectory().getPath() + "/" + splitCommand[1], interpreter.getDirectory());
-    interpreter.getDirectory().addDirectory(newDir);
+    Directory currentDir = interpreter.getDirectory();
+    Directory newDir = new Directory(
+        splitCommand[1], currentDir.getPath() + "/" + splitCommand[1], currentDir);
+    currentDir.addDirectory(newDir);
     return "'" + splitCommand[1] + "' directory created.";
   }
 }
