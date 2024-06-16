@@ -8,7 +8,6 @@ public class mkdir implements Command {
   public String execute(String[] splitCommand, Directory directory) {
     Directory newDir = new Directory(splitCommand[1], directory.getPath() + "/" + splitCommand[1]);
     directory.addDirectory(newDir);
-    System.out.println("'" + splitCommand[1] + "' directory created.");
-    return directory;
+    return "'" + splitCommand[1] + "' directory created.";
   }
 }
