@@ -1,5 +1,6 @@
 package edu.austral.ingsis.clifford.commands.command;
 
+import edu.austral.ingsis.clifford.cli.Interpreter;
 import edu.austral.ingsis.clifford.filesystem.Archive;
 import edu.austral.ingsis.clifford.filesystem.Directory;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.List;
 public class ls implements Command {
 
   @Override
-  public String execute(String[] splitCommand, Directory directory) {
+  public String execute(String[] splitCommand, Interpreter interpreter) {
     if (splitCommand.length == 1) {
       return loadFiles(directory);
     } else {
