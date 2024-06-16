@@ -4,12 +4,14 @@ import java.util.List;
 
 public class Directory implements Archive {
   private List<Archive> files;
+  private Directory parent;
   private String name;
   private String path;
 
-  public Directory(String name, String path) {
+  public Directory(String name, String path, Directory parent) {
     this.name = name;
     this.path = path;
+    this.parent = parent;
   }
 
   @Override
@@ -20,6 +22,10 @@ public class Directory implements Archive {
   @Override
   public String getPath() {
     return path;
+  }
+
+  public Directory getParent() {
+    return parent;
   }
 
   @Override

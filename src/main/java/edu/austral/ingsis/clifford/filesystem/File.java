@@ -1,12 +1,14 @@
 package edu.austral.ingsis.clifford.filesystem;
 
 public class File implements Archive {
+  private Directory parent;
   private final String name;
   private final String path;
 
-  public File(String fileName, String filePath) {
+  public File(String fileName, String filePath, Directory parent) {
     this.name = fileName;
     this.path = filePath;
+    this.parent = parent;
   }
 
   @Override
@@ -17,6 +19,10 @@ public class File implements Archive {
   @Override
   public String getPath() {
     return path;
+  }
+
+  public Directory getParent() {
+    return parent;
   }
 
   @Override
