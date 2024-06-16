@@ -3,27 +3,25 @@ package edu.austral.ingsis.clifford.commands.command;
 import edu.austral.ingsis.clifford.filesystem.Archive;
 import edu.austral.ingsis.clifford.filesystem.Directory;
 
+import java.util.Collections;
+import java.util.List;
+
 public class ls implements Command {
 
   @Override
-  public Directory execute(String[] splitCommand, Directory directory) {
-    String output = loadFiles(directory);
+  public String execute(String[] splitCommand, Directory directory) {
     if (splitCommand.length == 1) {
-      System.out.println(output);
+      return loadFiles(directory);
     } else {
-      printAccordingToParameters(output, splitCommand);
+      return printAccordingToParameters(directory, splitCommand);
     }
-    return directory;
   }
 
-  private void printAccordingToParameters(String output, String[] command) {
-    String[] splitParam = command[1].split("=");
+  private String printAccordingToParameters(Directory directory, String[] splitCommand) {
+    String[] splitParam = splitCommand[1].split("=");
+    StringBuilder output = new StringBuilder();
     if (splitParam[1].equals("asc")) {
-      System.out.println(output);
-    } else if (splitParam[1].equals("desc")) {
-      System.out.println(new StringBuilder(output).reverse());
-    } else {
-      System.out.println("Invalid argument for parameter: '" + splitParam[0] + "'");
+      Collections.sort(archives);
     }
   }
 
