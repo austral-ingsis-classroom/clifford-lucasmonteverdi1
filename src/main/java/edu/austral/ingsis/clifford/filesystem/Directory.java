@@ -50,7 +50,14 @@ public class Directory implements Archive {
   }
 
   /* 'rm' */
-  public void removeFile(String name) {}
+  public void removeFile(String name) {
+    for (Archive file : files) {
+      if (file.getName().equals(name) && file instanceof File) {
+        files.remove(file);
+        return;
+      }
+    }
+  }
 
   private Archive findFile(String name, List<Archive> files) {
     for (Archive file : files) {

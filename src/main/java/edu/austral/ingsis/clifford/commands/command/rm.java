@@ -6,6 +6,7 @@ public class rm implements Command {
 
   @Override
   public String execute(String[] splitCommand, Interpreter interpreter) {
+    
     return "";
   }
 }
