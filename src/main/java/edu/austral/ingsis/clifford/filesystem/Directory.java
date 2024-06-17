@@ -2,6 +2,7 @@ package edu.austral.ingsis.clifford.filesystem;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Directory implements Archive {
   private List<Archive> files;
@@ -14,6 +15,20 @@ public class Directory implements Archive {
     this.path = path;
     this.parent = parent;
     this.files = new ArrayList<>();
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof Directory directory)) return false;
+    return Objects.equals(parent, directory.parent)
+        && Objects.equals(name, directory.name)
+        && Objects.equals(path, directory.path);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(parent, name, path);
   }
 
   @Override
@@ -59,9 +74,9 @@ public class Directory implements Archive {
     }
   }
 
-  private Archive findFile(String name, List<Archive> files) {
+  public Archive findArchive(String name) {
     for (Archive file : files) {
-      if (file instanceof File && file.getName().equals(name)) {
+      if (file.getName().equals(name)) {
         return file;
       }
     }
@@ -70,6 +85,6 @@ public class Directory implements Archive {
 
   /* rm --recursive */
   public void removeDirectory(Archive directory) {
-    this.files.remove(directory);
+    files.remove(directory);
   }
 }
