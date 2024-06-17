@@ -30,7 +30,7 @@ public class cd implements Command {
         interpreter.setDirectory(res);
         return "moved to directory '" + res.getName() + "'";
       } else {
-        return "Directory with name '" + splitRoute[0] + "' not found";
+        return "'" + splitRoute[0] + "' directory does not exist";
       }
     } else {
       /* Case "cd Desktop/Austral" */
@@ -44,7 +44,7 @@ public class cd implements Command {
       List<Archive> files = currentDir.getFiles();
       Directory res = findDirectory(subDir, files);
       if (res == null) {
-        return "Directory with name '" + subDir + "' not found";
+        return "'" + subDir + "' directory does not exist";
       } else {
         currentDir = res;
       }

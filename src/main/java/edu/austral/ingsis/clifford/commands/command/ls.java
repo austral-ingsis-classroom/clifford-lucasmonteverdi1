@@ -41,9 +41,9 @@ public class ls implements Command {
   }
 
   private void loadFilesWithSpaces(StringBuilder output, List<String> files) {
-    output.append(files.getFirst().split("\\.")[0]);
+    output.append(files.getFirst());
     for (int i = 1; i < files.size(); i++) {
-      output.append(" ").append(files.get(i).split("\\.")[0]);
+      output.append(" ").append(files.get(i));
     }
   }
 

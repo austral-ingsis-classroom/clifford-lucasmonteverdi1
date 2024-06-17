@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CLI implements Interpreter {
   private Directory directory;
-  private final Directory root = new Directory("root", "/", null);
+  private final Directory root = new Directory("/", "/", null);
   private final Map<String, CommandParser> parsers = new HashMap<>();
 
   public CLI() {

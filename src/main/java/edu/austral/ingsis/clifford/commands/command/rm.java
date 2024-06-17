@@ -3,9 +3,6 @@ package edu.austral.ingsis.clifford.commands.command;
 import edu.austral.ingsis.clifford.cli.Interpreter;
 import edu.austral.ingsis.clifford.filesystem.Archive;
 import edu.austral.ingsis.clifford.filesystem.Directory;
-import edu.austral.ingsis.clifford.filesystem.File;
-
-import java.util.List;
 
 public class rm implements Command {
 
@@ -19,9 +16,14 @@ public class rm implements Command {
   }
 
   private String recursiveRemoval(String fileName, Interpreter interpreter) {
-    List<Archive> files = interpreter.getCurrentDirectory().getFiles();
-
-    return "";
+    Directory directory = interpreter.getCurrentDirectory();
+    Archive result = directory.findArchive(fileName);
+    if (result == null) {
+      return "could not find file '" + fileName + "'";
+    } else {
+      directory.removeDirectory(result);
+      return "'" + fileName + "' removed";
+    }
   }
 
   private String simpleRemoval(String fileName, Interpreter interpreter) {
@@ -30,17 +32,16 @@ public class rm implements Command {
     if (result == null) {
       return "could not find file '" + fileName + "'";
     } else {
-      return processResult(result, fileName, directory);
+      return processSimpleResult(result, fileName, directory);
     }
-
   }
 
-  private String processResult(Archive result, String fileName, Directory directory) {
+  private String processSimpleResult(Archive result, String fileName, Directory directory) {
     if (result instanceof Directory) {
-      return "cannot remove '" + result.getName() + "' is a directory";
+      return "cannot remove '" + result.getName() + "', is a directory";
     } else {
       directory.removeFile(fileName);
-      return "'" + fileName + "' file removed";
+      return "'" + fileName + "' removed";
     }
   }
 }
