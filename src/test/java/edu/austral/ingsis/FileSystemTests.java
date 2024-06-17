@@ -118,7 +118,7 @@ public class FileSystemTests {
             entry("touch jetta.txt", "'jetta.txt' file created"),
             entry("ls", "emily horace.txt jetta.txt"),
             entry("rm --recursive emily", "'emily' removed"),
-            entry("ls", "emily.txt jetta.txt"),
-            entry("ls --ord=desc", "jetta.txt emily.txt")));
+            entry("ls", "horace.txt jetta.txt"),
+            entry("ls --ord=desc", "jetta.txt horace.txt")));
   }
 }
