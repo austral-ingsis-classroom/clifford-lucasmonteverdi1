@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CLI implements Interpreter {
   private Directory directory;
-  private final Directory root = new Directory("root", "/", null);
+  private final Directory root = new Directory("root", "", null);
   private final Map<String, CommandParser> parsers = new HashMap<>();
 
   public CLI() {
@@ -18,6 +18,7 @@ public class CLI implements Interpreter {
     this.parsers.put("rm", new rmParser());
     this.parsers.put("mkdir", new mkdirParser());
     this.parsers.put("touch", new touchParser());
+    this.directory = root;
   }
 
   @Override

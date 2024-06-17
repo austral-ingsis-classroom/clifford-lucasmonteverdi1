@@ -32,17 +32,29 @@ public class ls implements Command {
   }
 
   private String buildString(StringBuilder output, List<String> files) {
-    for (String file : files) {
-      output.append(file).append(" ");
+    if (files.size() > 1) {
+      loadFilesWithSpaces(output, files);
+    } else {
+      output.append(files.getFirst());
     }
     return output.toString();
   }
 
+  private void loadFilesWithSpaces(StringBuilder output, List<String> files) {
+    output.append(files.get(0));
+    for (int i = 1; i < files.size(); i++) {
+      output.append(" ").append(files.get(i));
+    }
+  }
+
   private String loadFiles(Directory directory) {
     StringBuilder res = new StringBuilder();
-    if (!directory.getFiles().isEmpty()) {
-      for (Archive file : directory.getFiles()) {
-        res.append(file.toString()).append(" ");
+    List<Archive> files = directory.getFiles();
+    if (!files.isEmpty()) {
+      if (files.size() > 1) {
+        loadFilesWithSpaces(res, loadFilesToString(directory));
+      } else {
+        res.append(files.getFirst());
       }
     }
     return res.toString();
