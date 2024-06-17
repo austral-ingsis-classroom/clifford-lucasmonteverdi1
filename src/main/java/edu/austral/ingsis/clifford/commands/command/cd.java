@@ -71,6 +71,9 @@ public class cd implements Command {
   private String processCompositeArgument(String destination, Interpreter interpreter) {
     Directory currentDir = interpreter.getCurrentDirectory();
     if (destination.charAt(1) == '.') {
+      if (currentDir == interpreter.getRoot()) {
+        return "moved to directory '" + currentDir.getName() + "'";
+      }
       interpreter.setDirectory(currentDir.getParent());
       currentDir = interpreter.getCurrentDirectory();
     }
