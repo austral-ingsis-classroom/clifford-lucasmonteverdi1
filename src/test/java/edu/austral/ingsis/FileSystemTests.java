@@ -116,7 +116,7 @@ public class FileSystemTests {
             entry("mkdir emily", "'emily' directory created"),
             entry("touch horace.txt", "'horace.txt' file created"),
             entry("touch jetta.txt", "'jetta.txt' file created"),
-            entry("ls", "emily emily.txt jetta.txt"),
+            entry("ls", "emily horace.txt jetta.txt"),
             entry("rm --recursive emily", "'emily' removed"),
             entry("ls", "emily.txt jetta.txt"),
             entry("ls --ord=desc", "jetta.txt emily.txt")));
