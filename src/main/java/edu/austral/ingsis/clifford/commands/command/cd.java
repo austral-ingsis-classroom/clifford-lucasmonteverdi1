@@ -28,7 +28,7 @@ public class cd implements Command {
       Directory res = findDirectory(splitRoute[0], dirFiles);
       if (res != null) {
         interpreter.setDirectory(res);
-        return "Moved to directory: '" + res.getName() + "'";
+        return "moved to directory '" + res.getName() + "'";
       } else {
         return "Directory with name '" + splitRoute[0] + "' not found";
       }
@@ -50,7 +50,7 @@ public class cd implements Command {
       }
     }
     interpreter.setDirectory(currentDir);
-    return "Moved to directory: '" + currentDir.getName() + "'";
+    return "moved to directory '" + currentDir.getName() + "'";
   }
 
   private Directory findDirectory(String route, List<Archive> files) {
@@ -75,6 +75,6 @@ public class cd implements Command {
       currentDir = interpreter.getCurrentDirectory();
     }
     String finalDir = currentDir.getName();
-    return "Moved to directory: '" + finalDir + "'";
+    return "moved to directory '" + finalDir + "'";
   }
 }

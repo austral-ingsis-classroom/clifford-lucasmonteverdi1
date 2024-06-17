@@ -11,7 +11,7 @@ public class Directory implements Archive {
 
   public Directory(String name, String path, Directory parent) {
     this.name = name;
-    this.path = path + "/";
+    this.path = path;
     this.parent = parent;
     this.files = new ArrayList<>();
   }
